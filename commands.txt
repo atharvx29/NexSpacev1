@@ -1,0 +1,5 @@
+add
+sub
+div
+mul
+pwd
