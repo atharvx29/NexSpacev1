@@ -1,4 +1,5 @@
 from NexCLI import Nexcli
+import uuid
 print('''
 ╭─────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                     │
@@ -29,6 +30,9 @@ if run_inp == "run":
         elif cmd.lower() == "info":
             print("Developer - Atharv\nDesignation - Founder of NexSemble\n\nProject Description - First project under the name NexSemble, it is to introduce some ideas into the community. I am looking forward into making this useful for us!!")
         
+        elif cmd.lower() == "uuid":
+            print(uuid.uuid4())
+            
         elif cmd.lower() == "exit":
             print("EXITING NEXCLI...........")
             break
