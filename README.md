@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NexCLI
 
 ## Project Overview
@@ -54,3 +55,6 @@
 ---
 
 *Built with 💙 by NexSemble*
+=======
+#NexCLI
+>>>>>>> fe8632ba245d6750bb20e2bc61097bd9002b868c

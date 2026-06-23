@@ -3,3 +3,5 @@ sub
 div
 mul
 pwd
+uuid
+exit
