@@ -1,3 +1,5 @@
+import random
+import string
 class Nexcli:
     def __init__(self):
         print("""
@@ -10,5 +12,7 @@ Welcome to NexCLI user! Please type 'help' for the commands in the
 ">>>" area. If you are well versed with the commands, continue your work :)
 """)
     def pwd(self):
-        pass
-    
+        char = string.ascii_letters + string.digits + string.punctuation
+        password = ''.join(random.choice(char) for _ in range(12))
+        return password
+

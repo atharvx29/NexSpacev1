@@ -36,6 +36,9 @@ if run_inp == "run":
         elif cmd.lower() == "exit":
             print("EXITING NEXCLI...........")
             break
+        
+        elif cmd.lower() == "pwd":
+            print(Nex.pwd())
     
 else: 
     print("I guess you dont want to run the program :((")
