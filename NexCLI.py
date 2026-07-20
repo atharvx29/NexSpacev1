@@ -1,6 +1,7 @@
 import random
 import string
-class Nexcli:
+import uuid as UUID
+class nexcli:
     def __init__(self):
         print("""
 _|      _|                        _|_|_|  _|        _|_|_|
@@ -15,4 +16,7 @@ Welcome to NexCLI user! Please type 'help' for the commands in the
         char = string.ascii_letters + string.digits + string.punctuation
         password = ''.join(random.choice(char) for _ in range(12))
         return password
+    
+    def uuid(self):
+        return UUID.uuid4()
 

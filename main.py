@@ -1,5 +1,4 @@
-from NexCLI import Nexcli
-import uuid
+from NexCLI import nexcli
 print('''
 ╭─────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                     │
@@ -14,9 +13,9 @@ print('''
 ╰─────────────────────────────────────────────────────────────────────────────────────╯
 \n\n''')
 
-run_inp = str(input("Please type 'run' to start the program\n\n>>> ")).lower()
-if run_inp == "run":
-    Nex = Nexcli()
+run_inp = str(input("Please enter to start the program\n\n>>> ")).lower()
+while True:
+    Nex = nexcli()
     while True:
         cmd = str(input("\n\n\n>>> ")).strip().lower()
         
@@ -31,7 +30,7 @@ if run_inp == "run":
             print("Developer - Atharv\nDesignation - Founder of NexSemble\n\nProject Description - First project under the name NexSemble, it is to introduce some ideas into the community. I am looking forward into making this useful for us!!")
         
         elif cmd.lower() == "uuid":
-            print(uuid.uuid4())
+            print(Nex.uuid())
             
         elif cmd.lower() == "exit":
             print("EXITING NEXCLI...........")
@@ -39,6 +38,14 @@ if run_inp == "run":
         
         elif cmd.lower() == "pwd":
             print(Nex.pwd())
-    
+        
+        #lets user create a new file and edit it
+        elif cmd.lower() == "newfile":
+            with open ("file.txt", "a"):
+                pass #make the file editing feature
+            
+        #elif "fedit"
+                
+        
 else: 
     print("I guess you dont want to run the program :((")
