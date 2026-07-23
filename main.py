@@ -1,6 +1,7 @@
 from NexCLI import nexcli
 import sys
-print('''
+
+BANNER = '''
 ╭─────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                     │
 │  __  __                  ____                       __       ___                    │
@@ -12,43 +13,84 @@ print('''
 │     \/_/\ / \/  \_/\/  \/_/  \/_____ \/\ \_/ \_/ \_/  \/  _/  \/____/ \/____/        │
 │                                                                                     │
 ╰─────────────────────────────────────────────────────────────────────────────────────╯
-\n\n''')
+'''
 
-run_inp = str(input("Please enter to start the program\n\n>>> ")).lower()
-while True:
+COMMANDS = {
+    "help": "Show available commands",
+    "info": "Show developer info",
+    "uuid": "Generate UUID",
+    "pwd": "Generate random password",
+    "newfile": "Create a new file",
+    "fedit": "Write content to a file",
+    "fread": "Read content from a file",
+    "exit": "Exit NexCLI"
+}
+
+def show_help():
+    print("\nAvailable Commands:")
+    print("-" * 40)
+    for cmd, desc in COMMANDS.items():
+        print(f"  {cmd:10} - {desc}")
+    print("-" * 40)
+
+def main():
+    print(BANNER)
+    input("Press Enter to start the program...\n")
+    
     Nex = nexcli()
+    
     while True:
-        cmd = str(input("\n\n\n>>> ")).strip().lower()
-        
-        if cmd == "":
-            continue
+        try:
+            cmd = input("\n>>> ").strip().lower()
             
-        elif cmd.lower() == "dev_check1":
-            cmd_arr = list(cmd)
-            print(cmd_arr)
-        
-        elif cmd.lower() == "info":
-            print("Developer - Atharv\nDesignation - Founder of NexSemble\n\nProject Description - First project under the name NexSemble, it is to introduce some ideas into the community. I am looking forward into making this useful for us!!")
-        
-        elif cmd.lower() == "uuid":
-            print(Nex.uuid())
+            if not cmd:
+                continue
             
-        elif cmd.lower() == "exit":
-            print("EXITING NEXCLI...........")
-            sys.exit()
+            if cmd == "help":
+                show_help()
+            
+            elif cmd == "info":
+                print("Developer - Atharv")
+                print("Designation - Founder of NexSemble")
+                print("\nProject Description - First project under the name NexSemble,")
+                print("it is to introduce some ideas into the community.")
+                print("I am looking forward into making this useful for us!!")
+            
+            elif cmd == "uuid":
+                print(Nex.uuid())
+            
+            elif cmd == "pwd":
+                print(Nex.pwd())
+            
+            elif cmd == "newfile":
+                filename = input("Enter filename: ").strip()
+                if filename:
+                    print(Nex.newfile(filename))
+            
+            elif cmd == "fedit":
+                filename = input("Enter filename: ").strip()
+                if filename:
+                    content = input("Enter content (or press Enter to skip): ").strip()
+                    print(Nex.fedit(filename, content if content else None))
+            
+            elif cmd == "fread":
+                filename = input("Enter filename: ").strip()
+                if filename:
+                    print(Nex.fread(filename))
+            
+            elif cmd == "exit":
+                print("EXITING NEXCLI...........")
+                break
+            
+            else:
+                print(f"Unknown command: {cmd}")
+                print("Type 'help' to see available commands")
         
-        elif cmd.lower() == "pwd":
-            print(Nex.pwd())
-        
-#lets user create a new file
-        elif cmd.lower() == "newfile":
-            filename = input("Enter filename: ").strip()
-            if filename:
-                open(filename, "a").close()
-                print(f"File '{filename}' ready")
-                
-        elif cmd.lower() == "fedit":
-            file = str(input("Enter filename: ") )
-            if file:
-                open(file, "a")
-                print(f"File '{file} successfully edited'")
+        except KeyboardInterrupt:
+            print("\n\nEXITING NEXCLI...........")
+            break
+        except Exception as e:
+            print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
