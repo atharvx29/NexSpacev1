@@ -1,4 +1,5 @@
 from NexCLI import nexcli
+import sys
 print('''
 ╭─────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                     │
@@ -34,18 +35,20 @@ while True:
             
         elif cmd.lower() == "exit":
             print("EXITING NEXCLI...........")
-            break
+            sys.exit()
         
         elif cmd.lower() == "pwd":
             print(Nex.pwd())
         
-        #lets user create a new file and edit it
+#lets user create a new file
         elif cmd.lower() == "newfile":
-            with open ("file.txt", "a"):
-                pass #make the file editing feature
-            
-        #elif "fedit"
+            filename = input("Enter filename: ").strip()
+            if filename:
+                open(filename, "a").close()
+                print(f"File '{filename}' ready")
                 
-        
-else: 
-    print("I guess you dont want to run the program :((")
+        elif cmd.lower() == "fedit":
+            file = str(input("Enter filename: ") )
+            if file:
+                open(file, "a")
+                print(f"File '{file} successfully edited'")
