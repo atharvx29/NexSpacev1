@@ -14,17 +14,7 @@ import string
 import uuid as UUID
 import os
 
-BANNER = '''
-╭─────────────────────────────────────────────────────────────────────────────────────╮
-│                                                                                     │
-│  _   _      _          _____           _        ____                                  │
-│ | \\ | | ___| |_)  ___|   __|_ _ _ ___ |_| ___  |  _ \\ ___  __ _  __ _  ___          │
-│ | . \\ || _ ||  _||___|__   | | |_'_|| || .'| | |_| |/ _ \\/ _` |/ _` |/ _ \\         │
-│ |\\_,\\_/|___||_|        |____|____|___||_||___|  |___//___/\\__,_|\\__, |\\___/         │
-│                                                                  |___/              │
-│                                                                                     │
-╰─────────────────────────────────────────────────────────────────────────────────────╯
-'''
+
 
 COMMANDS = {
     "help": "Show available commands",
@@ -62,8 +52,7 @@ Welcome to NexSpace user! Please type 'help' for the commands in the
 
     # ---------- display / meta ----------
 
-    def show_banner(self):
-        print(BANNER)
+   
 
     def show_help(self):
         print("\nAvailable Commands:")

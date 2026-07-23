@@ -5,7 +5,7 @@ This file is a thin interface: it imports the nexspace class from
 NexCLI.py and starts the CLI. All logic lives in NexCLI.py.
 """
 
-from NexCLI import nexspace
+from NexSpace import nexspace
 
 
 def main():

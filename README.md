@@ -8,14 +8,14 @@
 
 ## Changes Made & How They Improved the Project
 
-### 1. Moved All Logic Into `NexCLI.py`
+### 1. Moved All Logic Into `NexSpace.py`
 
 **Before:** `main.py` contained business logic mixed with interface code - the CLI loop, file I/O operations, help display, and developer info were all inlined.
 
-**After:** Every function now lives inside the `nexspace` class in `NexCLI.py`. `main.py` is reduced to a pure 3-line interface:
+**After:** Every function now lives inside the `nexspace` class in `NexSpace.py`. `main.py` is reduced to a pure 3-line interface:
 
 ```python
-from NexCLI import nexspace
+from NexSpace import nexspace
 
 def main():
     Nex = nexspace()
